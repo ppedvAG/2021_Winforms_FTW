@@ -72,5 +72,15 @@ namespace HalloDatenbank
                 MessageBox.Show($"Fehler: {ex.GetType()} {ex.Message}");
             }
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow.DataBoundItem is Employee emp)
+            {
+                textBox1.Text = emp.FirstName;
+                textBox2.Text = emp.LastName;
+                dateTimePicker1.Value = emp.BirthDate;
+            }
+        }
     }
 }
