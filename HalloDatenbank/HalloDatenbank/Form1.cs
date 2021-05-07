@@ -16,6 +16,7 @@ namespace HalloDatenbank
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = false;
         }
 
         private void LoadAllButton_Click(object sender, EventArgs e)
