@@ -13,13 +13,26 @@ namespace HalloDatenbank
 {
     public partial class Form1 : Form
     {
+        BindingList<Employee> employees = new BindingList<Employee>();
+
+
         public Form1()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = bindingSource1;
 
-            textBox3.DataBindings.Add("Text", textBox4, "Text",true,DataSourceUpdateMode.OnPropertyChanged);
-            textBox3.DataBindings.Add("BackColor", textBox4, "Text",true,DataSourceUpdateMode.OnPropertyChanged);
+            bindingSource1.DataSource = employees;
+
+            vornameTextBox.DataBindings.Add(nameof(TextBox.Text), bindingSource1, nameof(Employee.FirstName), true, DataSourceUpdateMode.OnPropertyChanged);
+            nachnameTextBox.DataBindings.Add(nameof(TextBox.Text), bindingSource1, nameof(Employee.LastName), true, DataSourceUpdateMode.OnPropertyChanged);
+            gebDatumDateTimePicker.DataBindings.Add(nameof(DateTimePicker.Value), bindingSource1, nameof(Employee.BirthDate), true, DataSourceUpdateMode.OnPropertyChanged);
+
+
+            textBox3.DataBindings.Add("Text", textBox4, "Text", true, DataSourceUpdateMode.OnPropertyChanged);
+            textBox3.DataBindings.Add("BackColor", textBox4, "Text", true, DataSourceUpdateMode.OnPropertyChanged);
+
+
         }
 
         private void LoadAllButton_Click(object sender, EventArgs e)
@@ -45,8 +58,7 @@ namespace HalloDatenbank
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                List<Employee> employees = new List<Employee>();
-
+                employees.Clear();
                 while (reader.Read())
                 {
                     Employee emp = new Employee();
@@ -64,7 +76,7 @@ namespace HalloDatenbank
 
                 con.Close();
 
-                dataGridView1.DataSource = employees;
+
             }
             catch (SqlException ex)
             {
@@ -76,14 +88,6 @@ namespace HalloDatenbank
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow.DataBoundItem is Employee emp)
-            {
-                textBox1.Text = emp.FirstName;
-                textBox2.Text = emp.LastName;
-                dateTimePicker1.Value = emp.BirthDate;
-            }
-        }
+
     }
 }
