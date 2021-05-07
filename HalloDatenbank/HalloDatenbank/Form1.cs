@@ -40,26 +40,35 @@ namespace HalloDatenbank
                 cmd.CommandText = "SELECT * FROM Employees";
 
                 SqlDataReader reader = cmd.ExecuteReader();
+
+                List<Employee> employees = new List<Employee>();
+
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(0);
-                    string lastName = reader.GetString(1); //per get mehoden: richtiger Datentyp, aber muss DB-spalteindex kennen
+                    Employee emp = new Employee();
+
+                    emp.Id = reader.GetInt32(0);
+                    emp.LastName = reader.GetString(1); //per get mehoden: richtiger Datentyp, aber muss DB-spalteindex kennen
 
                     object FirstNameAlsObj = reader["FirstName"]; //per DB-Spaltenname, aber muss selbst den typ umwandlung
 
-                    DateTime birthDate = reader.GetDateTime(reader.GetOrdinal("BirthDate")); //beste: richtiger typ + per Spaltenname abfragen
+                    emp.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                    emp.BirthDate = reader.GetDateTime(reader.GetOrdinal("BirthDate")); //beste: richtiger typ + per Spaltenname abfragen
 
+                    employees.Add(emp);
                 }
 
                 con.Close();
+
+                dataGridView1.DataSource = employees;
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"SQL Fehler: {ex.Number} {ex.Message} ");
+                MessageBox.Show($"SQL Fehler: {ex.Number} {ex.Message} {ex.ErrorCode} ");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Fehler: {ex.Message}");
+                MessageBox.Show($"Fehler: {ex.GetType()} {ex.Message}");
             }
         }
     }
