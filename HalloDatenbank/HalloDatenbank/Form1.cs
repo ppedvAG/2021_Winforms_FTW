@@ -17,6 +17,9 @@ namespace HalloDatenbank
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
+
+            textBox3.DataBindings.Add("Text", textBox4, "Text",true,DataSourceUpdateMode.OnPropertyChanged);
+            textBox3.DataBindings.Add("BackColor", textBox4, "Text",true,DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void LoadAllButton_Click(object sender, EventArgs e)
