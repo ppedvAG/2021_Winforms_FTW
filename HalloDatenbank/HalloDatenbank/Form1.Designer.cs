@@ -30,15 +30,13 @@ namespace HalloDatenbank
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.LoadAllButton = new System.Windows.Forms.Button();
             this.saveAsXMLButton = new System.Windows.Forms.Button();
             this.openXMLFileButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.firstnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,6 +51,10 @@ namespace HalloDatenbank
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.firstnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gebColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -71,10 +73,11 @@ namespace HalloDatenbank
             this.flowLayoutPanel1.Controls.Add(this.LoadAllButton);
             this.flowLayoutPanel1.Controls.Add(this.saveAsXMLButton);
             this.flowLayoutPanel1.Controls.Add(this.openXMLFileButton);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1353, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1353, 96);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // LoadAllButton
@@ -118,21 +121,22 @@ namespace HalloDatenbank
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstnameColumn,
+            this.gebColumn,
             this.lastnameColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.MultiSelect = false;
@@ -141,31 +145,13 @@ namespace HalloDatenbank
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(451, 695);
+            this.dataGridView1.Size = new System.Drawing.Size(451, 647);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // firstnameColumn
-            // 
-            this.firstnameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.firstnameColumn.DataPropertyName = "Firstname";
-            this.firstnameColumn.HeaderText = "Vorname";
-            this.firstnameColumn.MinimumWidth = 10;
-            this.firstnameColumn.Name = "firstnameColumn";
-            this.firstnameColumn.Width = 155;
-            // 
-            // lastnameColumn
-            // 
-            this.lastnameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lastnameColumn.DataPropertyName = "LastName";
-            this.lastnameColumn.HeaderText = "Nachname";
-            this.lastnameColumn.MinimumWidth = 10;
-            this.lastnameColumn.Name = "lastnameColumn";
-            this.lastnameColumn.Width = 175;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 48);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 96);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -175,7 +161,7 @@ namespace HalloDatenbank
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1353, 695);
+            this.splitContainer1.Size = new System.Drawing.Size(1353, 647);
             this.splitContainer1.SplitterDistance = 451;
             this.splitContainer1.SplitterWidth = 23;
             this.splitContainer1.TabIndex = 2;
@@ -202,7 +188,7 @@ namespace HalloDatenbank
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 695);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 647);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -295,6 +281,44 @@ namespace HalloDatenbank
             this.openFileDialog1.Filter = "XML Datei|*.xml|Alle Dateien|*.*";
             this.openFileDialog1.Title = "Employees XML File";
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Location = new System.Drawing.Point(3, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(704, 42);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Filter: Employees GebDatum vor 2000, sortiert nach Monat, Jahr";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // firstnameColumn
+            // 
+            this.firstnameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.firstnameColumn.DataPropertyName = "Firstname";
+            this.firstnameColumn.HeaderText = "Vorname";
+            this.firstnameColumn.MinimumWidth = 10;
+            this.firstnameColumn.Name = "firstnameColumn";
+            this.firstnameColumn.Width = 155;
+            // 
+            // gebColumn
+            // 
+            this.gebColumn.DataPropertyName = "BirthDate";
+            this.gebColumn.HeaderText = "GebDatum";
+            this.gebColumn.MinimumWidth = 10;
+            this.gebColumn.Name = "gebColumn";
+            this.gebColumn.Width = 200;
+            // 
+            // lastnameColumn
+            // 
+            this.lastnameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lastnameColumn.DataPropertyName = "LastName";
+            this.lastnameColumn.HeaderText = "Nachname";
+            this.lastnameColumn.MinimumWidth = 10;
+            this.lastnameColumn.Name = "lastnameColumn";
+            this.lastnameColumn.Width = 175;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -329,8 +353,6 @@ namespace HalloDatenbank
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button LoadAllButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameColumn;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -347,6 +369,10 @@ namespace HalloDatenbank
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button openXMLFileButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gebColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameColumn;
     }
 }
 

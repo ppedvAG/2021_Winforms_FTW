@@ -123,5 +123,27 @@ namespace HalloDatenbank
                 reader.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //linq expression 
+            var query = from emp in employees
+                        where emp.BirthDate.Year > 1950
+                        orderby emp.BirthDate.Month, emp.BirthDate.Year descending
+                        select emp;
+
+            //var result = query.ToList();
+
+            //linq Lambda
+            var result = employees.Where(emp => emp.BirthDate.Year > 1950)
+                                  .OrderBy(x => x.BirthDate.Month)
+                                  .ThenByDescending(x => x.BirthDate.Year)
+                                  .ToList();
+
+            //update UI
+            employees.Clear();
+            result.ForEach(x => employees.Add(x));
+
+        }
     }
 }
