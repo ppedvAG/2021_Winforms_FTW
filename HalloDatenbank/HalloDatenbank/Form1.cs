@@ -102,5 +102,26 @@ namespace HalloDatenbank
                 writer.Close();
             }
         }
+
+        private void openXMLFileButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader reader = new StreamReader(openFileDialog1.FileName);
+
+                XmlSerializer serial = new XmlSerializer(typeof(List<Employee>));
+                List<Employee> emps = (List<Employee>)serial.Deserialize(reader);
+                employees.Clear();
+                //kurz:
+                emps.ForEach(x => employees.Add(x));
+                //oder lang:
+                //foreach (Employee emp in emps)
+                //{
+                //    employees.Add(emp);
+                //}
+
+                reader.Close();
+            }
+        }
     }
 }
