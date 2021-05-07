@@ -22,13 +22,21 @@ namespace HalloDatenbank
         {
             try
             {
-                SqlConnection con = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=NORwefewfTHWND;Trusted_Connection=true");
-
+                SqlConnection con = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=NORTHWND;Trusted_Connection=true");
                 con.Open();
-                MessageBox.Show("Verbindung hergestellt");
+                //MessageBox.Show("Verbindung hergestellt");
 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT Count(*) FROM Employees";
+
+                object countAlsObj = cmd.ExecuteScalar();
+                if (countAlsObj is int countAlsInt)
+                {
+                    MessageBox.Show($"{countAlsInt} Employees in DB");
+                }
+                
                 con.Close();
-
             }
             catch (SqlException ex)
             {
