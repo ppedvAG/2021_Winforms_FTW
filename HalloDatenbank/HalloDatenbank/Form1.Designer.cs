@@ -34,6 +34,8 @@ namespace HalloDatenbank
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.LoadAllButton = new System.Windows.Forms.Button();
+            this.saveAsXMLButton = new System.Windows.Forms.Button();
+            this.openXMLFileButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.firstnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +48,10 @@ namespace HalloDatenbank
             this.nachnameTextBox = new System.Windows.Forms.TextBox();
             this.gebDatumDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.saveAsXMLButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openXMLFileButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +88,30 @@ namespace HalloDatenbank
             this.LoadAllButton.Text = "Alle Employees aus DB laden ";
             this.LoadAllButton.UseVisualStyleBackColor = true;
             this.LoadAllButton.Click += new System.EventHandler(this.LoadAllButton_Click);
+            // 
+            // saveAsXMLButton
+            // 
+            this.saveAsXMLButton.AutoSize = true;
+            this.saveAsXMLButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.saveAsXMLButton.Location = new System.Drawing.Point(350, 3);
+            this.saveAsXMLButton.Name = "saveAsXMLButton";
+            this.saveAsXMLButton.Size = new System.Drawing.Size(235, 42);
+            this.saveAsXMLButton.TabIndex = 1;
+            this.saveAsXMLButton.Text = "Als XML speichern...";
+            this.saveAsXMLButton.UseVisualStyleBackColor = true;
+            this.saveAsXMLButton.Click += new System.EventHandler(this.saveAsXMLButton_Click);
+            // 
+            // openXMLFileButton
+            // 
+            this.openXMLFileButton.AutoSize = true;
+            this.openXMLFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openXMLFileButton.Location = new System.Drawing.Point(591, 3);
+            this.openXMLFileButton.Name = "openXMLFileButton";
+            this.openXMLFileButton.Size = new System.Drawing.Size(193, 42);
+            this.openXMLFileButton.TabIndex = 2;
+            this.openXMLFileButton.Text = "Per XML laden...";
+            this.openXMLFileButton.UseVisualStyleBackColor = true;
+            this.openXMLFileButton.Click += new System.EventHandler(this.openXMLFileButton_Click);
             // 
             // dataGridView1
             // 
@@ -244,14 +268,6 @@ namespace HalloDatenbank
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bindingbeispiel";
             // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox3.Location = new System.Drawing.Point(3, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(867, 39);
-            this.textBox3.TabIndex = 0;
-            // 
             // textBox4
             // 
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -260,34 +276,18 @@ namespace HalloDatenbank
             this.textBox4.Size = new System.Drawing.Size(867, 39);
             this.textBox4.TabIndex = 1;
             // 
-            // saveAsXMLButton
+            // textBox3
             // 
-            this.saveAsXMLButton.AutoSize = true;
-            this.saveAsXMLButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.saveAsXMLButton.Location = new System.Drawing.Point(350, 3);
-            this.saveAsXMLButton.Name = "saveAsXMLButton";
-            this.saveAsXMLButton.Size = new System.Drawing.Size(235, 42);
-            this.saveAsXMLButton.TabIndex = 1;
-            this.saveAsXMLButton.Text = "Als XML speichern...";
-            this.saveAsXMLButton.UseVisualStyleBackColor = true;
-            this.saveAsXMLButton.Click += new System.EventHandler(this.saveAsXMLButton_Click);
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox3.Location = new System.Drawing.Point(3, 35);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(867, 39);
+            this.textBox3.TabIndex = 0;
             // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.Filter = "XML Datei|*.xml|Alle Dateien|*.*";
             this.saveFileDialog1.Title = "XML Datei speichern";
-            // 
-            // openXMLFileButton
-            // 
-            this.openXMLFileButton.AutoSize = true;
-            this.openXMLFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.openXMLFileButton.Location = new System.Drawing.Point(591, 3);
-            this.openXMLFileButton.Name = "openXMLFileButton";
-            this.openXMLFileButton.Size = new System.Drawing.Size(193, 42);
-            this.openXMLFileButton.TabIndex = 2;
-            this.openXMLFileButton.Text = "Per XML laden...";
-            this.openXMLFileButton.UseVisualStyleBackColor = true;
-            this.openXMLFileButton.Click += new System.EventHandler(this.openXMLFileButton_Click);
             // 
             // openFileDialog1
             // 
