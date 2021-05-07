@@ -22,13 +22,17 @@ namespace HalloDatenbank
         {
             try
             {
-                SqlConnection con = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=NreregORTHWND;Trusted_Connection=true");
+                SqlConnection con = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=NORwefewfTHWND;Trusted_Connection=true");
 
                 con.Open();
                 MessageBox.Show("Verbindung hergestellt");
 
                 con.Close();
 
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"SQL Fehler: {ex.Number} {ex.Message} ");
             }
             catch (Exception ex)
             {
