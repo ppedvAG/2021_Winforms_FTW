@@ -26,16 +26,31 @@ namespace HalloDatenbank
                 con.Open();
                 //MessageBox.Show("Verbindung hergestellt");
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "SELECT Count(*) FROM Employees";
+                SqlCommand countCmd = new SqlCommand();
+                countCmd.Connection = con;
+                countCmd.CommandText = "SELECT Count(*) FROM Employees";
 
-                object countAlsObj = cmd.ExecuteScalar();
+                object countAlsObj = countCmd.ExecuteScalar();
                 if (countAlsObj is int countAlsInt)
                 {
                     MessageBox.Show($"{countAlsInt} Employees in DB");
                 }
-                
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Employees";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string lastName = reader.GetString(1); //per get mehoden: richtiger Datentyp, aber muss DB-spalteindex kennen
+
+                    object FirstNameAlsObj = reader["FirstName"]; //per DB-Spaltenname, aber muss selbst den typ umwandlung
+
+                    DateTime birthDate = reader.GetDateTime(reader.GetOrdinal("BirthDate")); //beste: richtiger typ + per Spaltenname abfragen
+
+                }
+
                 con.Close();
             }
             catch (SqlException ex)
