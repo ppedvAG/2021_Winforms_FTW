@@ -1,0 +1,32 @@
+✔UI Layouting
+✔ Solution / Datei struktur
+     - Debug/Release
+     - obj/bin
+✔ - Settings / Konfig
+
+✔ Basic Debugging
+
+✔ Mini Git
+✔ SQL
+✔ XML 
+✔Binding
+✔DataGridView
+✔linq 
+
+
+
+https://dotnet.microsoft.com/platform/support/policy
+https://github.com/ComponentFactory/Krypton
+https://openbook.rheinwerk-verlag.de/visual_csharp_2012/
+https://github.com/AdguardTeam/AdGuardHome#comparison-pi-
+hole%20DNS%20server
+https://www.fatcow.com/free-icons
+https://docs.microsoft.com/de-de/microsoft-edge/webview2/gettingstarted/winforms
+https://www.connectionstrings.com
+https://linqsamples.com
+
+https://mycsharp.de/forum
+https://stackexchange.com/sites
+https://www.youtube.com/c/DavesGarage/videos
+
+🍕
