@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace HalloDatenbank
 {
@@ -88,6 +90,17 @@ namespace HalloDatenbank
             }
         }
 
+        private void saveAsXMLButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
 
+                XmlSerializer serial = new XmlSerializer(typeof(List<Employee>));
+                serial.Serialize(writer, employees.ToList());
+
+                writer.Close();
+            }
+        }
     }
 }
